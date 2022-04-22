@@ -48,7 +48,7 @@ class ProjectHelper:
             self.project_cache = []
             for element in wd.find_elements_by_xpath("//a[contains(@href, 'manage_proj_edit_page')]"):
                 text = element.text
-                id = re.findall("[\d]+", element.get_attribute("href"))[0]
+                id = element.get_attribute("href").split("project_id=")[1]
                 self.project_cache.append(Project(name=text, id=id))
         return list(self.project_cache)
 
