@@ -11,6 +11,7 @@ def test_signup_new_account(app):
     username = random_username("user_", 10)
     email = username + "@localhost"
     password = "test"
+    app.session.ensure_logout()
     app.james.ensure_user_exists(username, password)
     app.signup.new_user(username, email, password)
     app.session.login(username, password)
