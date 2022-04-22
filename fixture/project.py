@@ -1,5 +1,4 @@
 from model.project import Project
-import re
 
 
 class ProjectHelper:
